@@ -17,18 +17,20 @@ import java.time.format.DateTimeFormatter;
  */
 public class ContentWriter {
 
-    public boolean test;
 
-    public void writeDataToFile(String newFilePath, Customer customer) {
+    public void writeDataToFile(String newFilePath, Customer customer,boolean test) {
         if (customer == null || newFilePath == null)
             throw new IllegalArgumentException("Ogiltig input");
         LocalDate datum = LocalDate.now();
         try (BufferedWriter contentWriter = new BufferedWriter(new FileWriter((newFilePath), true))) {
+
             contentWriter.write("Kund: " + customer.getName() + "\nPersonnummer: " + customer.getPersonID() +
                     "\nDatum för besök: " + datum + "\n");
+
         } catch (IOException e) {
             e.getMessage();
             e.printStackTrace();
+
             System.out.println("ops! kunde inte läsa till filen");
         }
         if (!test)

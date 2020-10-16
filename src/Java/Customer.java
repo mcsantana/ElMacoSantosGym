@@ -20,15 +20,15 @@ public class Customer {
     private String name;
     private LocalDate lastPayment;
 
+    public Customer() {
+
+    }
     public Customer(String personID, String name, LocalDate lastPayment) {
         this.personID = personID;
         this.name = name;
         this.lastPayment = lastPayment;
     }
 
-    public Customer() {
-
-    }
 
     public String getPersonID() {
         return personID;
